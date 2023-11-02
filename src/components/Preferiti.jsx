@@ -11,7 +11,7 @@ class Preferiti extends Component {
   };
 
   getMyFavorites = () => {
-    fetch("http://www.omdbapi.com/?apikey=846ed30e&s=star%20wars")
+    fetch("http://www.omdbapi.com/?apikey=846ed30e&s=lord%20of%20the%20rings")
       .then((response) => {
         if (response.ok) {
           return response.json();
