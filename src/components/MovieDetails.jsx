@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";
+import SingleComment from "./SingleComment";
+import AddComment from "./AddComment";
 
 const MovieDetails = () => {
   const params = useParams();
@@ -80,19 +82,14 @@ const MovieDetails = () => {
         {comments.map((comment) => {
           return (
             <div
-              className="bg-light opacity-50 rounded-4 p-1"
+              className="bg-light opacity-50 rounded-4 p-1 mb-2"
               key={comment._id}
             >
-              <div>
-                <strong>{comment.author}</strong> dice:
-              </div>
-              <i>"{comment.comment}"</i>
-              <div>
-                Valutazione : <strong>{comment.rate}</strong>
-              </div>
+              <SingleComment comment={comment} fetchComments={getComments} />
             </div>
           );
         })}
+        <AddComment id={idFilm} fetchComments={getComments} />
       </Col>
     </Row>
   );
